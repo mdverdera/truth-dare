@@ -1,7 +1,10 @@
 'use client';
 
-import RoomPage from '@/components/RoomPage';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
-export default function Room({ params }: { params: { roomCode: string } }) {
-  return <RoomPage roomCode={params.roomCode.toUpperCase()} />;
+export default function RoomRedirect() {
+  const router = useRouter();
+  useEffect(() => { router.replace('/'); }, [router]);
+  return null;
 }
