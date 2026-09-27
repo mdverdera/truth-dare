@@ -1,0 +1,23 @@
+{
+  "name": "truth-or-dare-server",
+  "version": "1.0.0",
+  "description": "WebSocket server for Truth or Dare multiplayer game",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "ws": "^8.18.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/uuid": "^9.0.8",
+    "@types/ws": "^8.5.13",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.2"
+  }
+}
