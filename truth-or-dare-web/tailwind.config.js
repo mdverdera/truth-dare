@@ -16,6 +16,7 @@ module.exports = {
           400: '#f472b6',
           500: '#ec4899',
         },
+        // keep lavender alias pointing to purple shades for compatibility
         lavender: {
           50: '#f5f3ff',
           100: '#ede9fe',
@@ -29,19 +30,12 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
-      animation: {
-        'float': 'float 3s ease-in-out infinite',
-        'sparkle': 'sparkle 2s ease-in-out infinite',
+      // dvh support (Tailwind 3.3+ includes min-h-dvh natively, but declare for safety)
+      minHeight: {
+        dvh: '100dvh',
       },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-8px)' },
-        },
-        sparkle: {
-          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
-          '50%': { opacity: '0.5', transform: 'scale(0.8)' },
-        },
+      height: {
+        dvh: '100dvh',
       },
     },
   },

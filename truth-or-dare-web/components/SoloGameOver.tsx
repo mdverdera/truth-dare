@@ -12,14 +12,18 @@ interface SoloGameOverProps {
 export default function SoloGameOver({ players, onPlayAgain, onBackToSetup }: SoloGameOverProps) {
   return (
     <div
-      className="min-h-screen flex items-center justify-center px-4"
-      style={{ background: "linear-gradient(135deg, #fdf2f8 0%, #f5f3ff 50%, #fdf8f0 100%)" }}
+      className="min-h-dvh flex items-center justify-center px-5"
+      style={{
+        background: "linear-gradient(135deg, #fdf2f8 0%, #f5f3ff 50%, #fdf8f0 100%)",
+        paddingTop: "max(2rem, env(safe-area-inset-top))",
+        paddingBottom: "max(2rem, env(safe-area-inset-bottom))",
+      }}
     >
       <motion.div
         className="card w-full max-w-sm text-center space-y-6"
-        initial={{ opacity: 0, scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0.88 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ type: "spring", stiffness: 300 }}
+        transition={{ type: "spring", stiffness: 300, damping: 24 }}
       >
         <motion.div
           className="text-6xl"
@@ -31,18 +35,22 @@ export default function SoloGameOver({ players, onPlayAgain, onBackToSetup }: So
 
         <div>
           <h2 className="text-3xl font-bold text-pink-500">Game Over!</h2>
-          <p className="text-gray-400 mt-1">That was fun! 🌸</p>
+          <p className="text-gray-400 mt-1 text-base">That was so fun! 🌸</p>
         </div>
 
+        {/* Player chips */}
         <div className="flex flex-wrap gap-2 justify-center">
           {players.map((p, i) => (
-            <span key={i} className="bg-lavender-50 text-lavender-500 border border-lavender-200 text-sm font-medium px-3 py-1 rounded-full">
+            <span
+              key={i}
+              className="bg-purple-50 text-purple-500 border border-purple-200 text-sm font-semibold px-3 py-1.5 rounded-full"
+            >
               {p.name}
             </span>
           ))}
         </div>
 
-        <div className="space-y-3 pt-2">
+        <div className="space-y-3 pt-1">
           <motion.button
             className="btn-primary"
             onClick={onPlayAgain}
